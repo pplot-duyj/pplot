@@ -38,5 +38,6 @@ dependencies {
 	compile 'commons-lang:commons-lang:2.6'
 	compile 'dom4j:dom4j:1.6'
 	compile 'com.qiniu:qiniu-java-sdk:7.2.+'
+	compile 'org.ehcache:ehcache:3.3.0'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
