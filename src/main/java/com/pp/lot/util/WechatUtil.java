@@ -4,6 +4,7 @@ import com.github.sd4324530.fastweixin.company.message.req.*;
 import com.github.sd4324530.fastweixin.company.message.resp.QYBaseRespMsg;
 import com.github.sd4324530.fastweixin.company.message.resp.QYTextRespMsg;
 import com.github.sd4324530.fastweixin.util.BeanUtil;
+import com.pp.lot.config.WechatConfig;
 import com.pp.lot.controller.GeneralController;
 import com.pp.lot.service.HttpClient;
 import com.pp.lot.service.StringUtil;
@@ -13,6 +14,7 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,16 +29,19 @@ import java.util.Map;
 @Component
 public class WechatUtil {
 
+    @Autowired
+    private WechatConfig wechatConfig;
+
     private static Logger logger = LoggerFactory.getLogger(GeneralController.class);
 
     /**
      * 获取access_token
      * */
-    public static String getAccessToken(){
+    public String getAccessToken(){
 
         String result = "";
         try {
-            result = HttpClient.doHttpGet("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+"wxf2e00ca264aa374a"+"&secret="+"ecdcfd4bbd98894b829b6c326e34078f");
+            result = HttpClient.doHttpGet("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+ wechatConfig.getAppId()+"&secret="+wechatConfig.getSecret());
             Map<String,String> accessToken = JacksonUtils.json2mapReset(result);
             if(!StringUtil.isEmpty(accessToken.get("access_token"))){
                 logger.info("####AccessToken####", accessToken.get("access_token"));

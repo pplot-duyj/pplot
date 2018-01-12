@@ -1,18 +1,18 @@
 $(function(){
-    var wechatCofig={};
+    var wechatConfig={};
     $.ajax({
         type: 'POST',
         url: "/wechat/getJSSDKParam",
         data: {currUrl: window.location.href.split("#")[0]},
         success: function (data) {
-            wechatCofig = JSON.parse(data.result);
+            wechatConfig = data.result;
 
             wx.config({
                 debug: true,
-                appId: 'wxf2e00ca264aa374a',
-                timestamp: parseInt(wechatCofig.timestamp),
-                nonceStr: wechatCofig.nonceStr,
-                signature: wechatCofig.signature,
+                appId: wechatConfig.appId,
+                timestamp: parseInt(wechatConfig.timestamp),
+                nonceStr: wechatConfig.nonceStr,
+                signature: wechatConfig.signature,
                 jsApiList: [
                     'checkJsApi',
                     'onMenuShareTimeline',

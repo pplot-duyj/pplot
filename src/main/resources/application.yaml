@@ -56,10 +56,8 @@ server:
     backgroundProcessorDelay: 30
 wechat:
   mp:
-    appId:
-    secret:
-    token:
-    aesKey:
+    appId: wxf2e00ca264aa374a
+    secret: ecdcfd4bbd98894b829b6c326e34078f
 
 
 

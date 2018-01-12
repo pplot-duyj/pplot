@@ -3,9 +3,11 @@ package com.pp.lot.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.pp.lot.config.WechatConfig;
 import com.pp.lot.service.HttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
@@ -16,6 +18,12 @@ import java.util.*;
 
 @Component
 public class WechatJsSDKUtil {
+
+    @Autowired
+    private WechatConfig wechatConfig;
+
+    @Autowired
+    private WechatUtil wechatUtil;
 
     private static Logger logger = LoggerFactory.getLogger(WechatJsSDKUtil.class);
 
@@ -44,12 +52,11 @@ public class WechatJsSDKUtil {
     }
 
 
-    public static String getJSSDKParam(String currUrl){
-        String jsapi_ticket = getJsApiTicket(WechatUtil.getAccessToken());
+    public Map getJSSDKParam(String currUrl){
+        String jsapi_ticket = getJsApiTicket(wechatUtil.getAccessToken());
         Map<String, String> params = sign(jsapi_ticket, currUrl);
-        JSONObject jsonObject = JSON.parseObject(JacksonUtils.mapToJson(params));
-        String jsonStr = jsonObject.toString();
-        return jsonStr;
+        params.put("appId", wechatConfig.getAppId());
+        return params;
     }
 
     public static Map<String, String> sign(String jsapi_ticket, String url) {
