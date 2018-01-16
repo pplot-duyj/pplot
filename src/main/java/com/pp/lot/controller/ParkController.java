@@ -1,6 +1,6 @@
 package com.pp.lot.controller;
 
-import com.pp.lot.service.GeneralService;
+import com.pp.lot.service.ParkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-public class GeneralController {
+public class ParkController {
 
     //private static Log logger = LogFactory.getLog(GeneralController.class);
-    private static Logger logger = LoggerFactory.getLogger(GeneralController.class);
+    private static Logger logger = LoggerFactory.getLogger(ParkController.class);
 
     @Autowired
-    private GeneralService generalService;
+    private ParkService parkService;
 
-    @RequestMapping("test")
+    @RequestMapping("park")
     public Map test(){
-        logger.info("GeneralController");
-        return generalService.queryData();
+        logger.info("ParkController");
+        return parkService.queryPark();
     }
 }

@@ -1,7 +1,7 @@
 package com.pp.lot.service;
 
-import com.pp.lot.controller.GeneralController;
-import com.pp.lot.mapper.GeneralMapper;
+import com.pp.lot.controller.ParkController;
+import com.pp.lot.mapper.ParkMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +12,16 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class GeneralService {
+public class ParkService {
 
-    private static Logger logger = LoggerFactory.getLogger(GeneralController.class);
+    private static Logger logger = LoggerFactory.getLogger(ParkController.class);
 
     @Autowired
-    private GeneralMapper generalMapper;
+    private ParkMapper parkMapper;
 
-    public Map queryData(){
-        logger.info("GeneralService");
-        List<Map> list = generalMapper.queryData();
+    public Map queryPark(){
+        logger.info("ParkService");
+        List<Map> list = parkMapper.queryPark();
         Map result = new HashMap();
         result.put("data", list);
         return result;

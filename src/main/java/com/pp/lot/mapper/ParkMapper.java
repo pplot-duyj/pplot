@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 @Mapper
-public interface GeneralMapper {
+public interface ParkMapper {
 
-    List<Map> queryData();
+    List<Map> queryPark();
 
 }

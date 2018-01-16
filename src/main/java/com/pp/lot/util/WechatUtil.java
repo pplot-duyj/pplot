@@ -5,7 +5,7 @@ import com.github.sd4324530.fastweixin.company.message.resp.QYBaseRespMsg;
 import com.github.sd4324530.fastweixin.company.message.resp.QYTextRespMsg;
 import com.github.sd4324530.fastweixin.util.BeanUtil;
 import com.pp.lot.config.WechatConfig;
-import com.pp.lot.controller.GeneralController;
+import com.pp.lot.controller.ParkController;
 import com.pp.lot.service.HttpClient;
 import com.pp.lot.service.StringUtil;
 import org.dom4j.Document;
@@ -32,7 +32,7 @@ public class WechatUtil {
     @Autowired
     private WechatConfig wechatConfig;
 
-    private static Logger logger = LoggerFactory.getLogger(GeneralController.class);
+    private static Logger logger = LoggerFactory.getLogger(ParkController.class);
 
     /**
      * 获取access_token

@@ -1,6 +1,6 @@
 package com.pp.lot.controller;
 
-import com.pp.lot.service.GeneralService;
+import com.pp.lot.service.ParkService;
 import com.pp.lot.util.WechatJsSDKUtil;
 import com.pp.lot.util.WechatUtil;
 import org.slf4j.Logger;
@@ -21,7 +21,7 @@ public class WechatController {
     private static Logger logger = LoggerFactory.getLogger(WechatController.class);
 
     @Autowired
-    private GeneralService generalService;
+    private ParkService parkService;
 
     @Autowired
     private WechatUtil wechatUtil;

@@ -1,9 +1,9 @@
 spring:
   datasource:
       dialect: mysql
-      url: 'jdbc:mysql://172.20.10.66:3306/51jk_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&allowMultiQueries=true'
-      username: 'devsql'
-      password: '1qaz123.com'
+      url: 'jdbc:mysql://34.239.110.197:3306/pplot?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&allowMultiQueries=true'
+      username: 'mydb'
+      password: 'mysql_dyj'
       driver-class-name: 'com.mysql.jdbc.Driver'
       type: com.alibaba.druid.pool.DruidDataSource
       initialSize: 1
@@ -30,11 +30,11 @@ spring:
   resources:
       staticLocations: classpath:/content/,classpath:/static/
 
-#mybatis:
-#    mapperLocations: classpath:mappers/**/*.xml
-#    typeAliasesPackage: com.jk51.fx
-#    configuration:
-#      callSettersOnNulls: true
+mybatis:
+    mapperLocations: classpath:mappers/**/*.xml
+    typeAliasesPackage: com.pp.lot
+    configuration:
+      callSettersOnNulls: true
 
 #logging:
 #    path: pplotlog
